@@ -1,0 +1,7 @@
+--exit
+--full-trace
+--timeout 1000
+--reporter spec
+--recursive test/spec/*.ts
+--require test/prepare
+--ui bdd

@@ -1,0 +1,11 @@
+{
+  "name": "restifizer-starter-backend",
+  "version": "0.0.1",
+  "description": "restifizer-starter-backend REST API docs",
+  "title": "restifizer-starter-backend REST API docs",
+  "url" : "https://restifizer-starter-backend.herokuapp.com",
+  "sampleUrl" : "https://restifizer-starter-backend.herokuapp.com",
+  "template": {
+    "withCompare": false
+  }
+}
