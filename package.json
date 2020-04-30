@@ -97,5 +97,5 @@
     "start": "node runner.js server",
     "test": "yarn migrate-test-db && cross-env NODE_ENV=test LOGGER_SUPPRESS_STDOUT=true mocha"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
