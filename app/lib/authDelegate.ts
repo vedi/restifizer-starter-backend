@@ -99,7 +99,7 @@ class AuthDelegate implements IAuthDelegate<UserDocument, ClientDocument> {
     user,
     authorizationCode,
   }: CleanUpTokensParams<UserDocument, ClientDocument, any>): Promise<void> {
-    const { _id: clientId } = client;
+    const { _id: clientId } = client || {};
     if (!clientId) {
       throw new Error('Client ID unspecified');
     }
