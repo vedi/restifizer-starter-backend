@@ -7,7 +7,8 @@ import chaiAsPromised from 'chai-as-promised';
 import chaiThings from 'chai-things';
 import chaiSnapshot from 'mocha-chai-snapshot';
 import { SocketIoRequest, SocketIoTransportData } from 'restifizer';
-import { UserResource } from 'app/domains/user';
+import app from 'app';
+import { UserDomain, UserResource } from 'app/domains/user';
 import testConfig from 'test/config';
 
 const {
@@ -16,7 +17,7 @@ const {
     RefreshToken,
     User,
   },
-} = require('app/app');
+} = app;
 
 chai.use(chaiAsPromised);
 chai.use(chaiThings);
@@ -123,7 +124,7 @@ const specHelper = {
   },
 
   getAdminUser() {
-    return { ...config.defaultUser };
+    return <Partial<UserResource>>{ ...config.defaultUser };
   },
 
   async fetchAndClearSentEmails(): Promise<EmailData[]> {
@@ -213,7 +214,7 @@ const specHelper = {
   withAdminUser(adminUserData: Partial<UserResource> = config.defaultUser) {
     before(async function () {
       this.adminUser = _.cloneDeep(adminUserData);
-      const { _id } = await User.findOne({ username: adminUserData.username }).lean();
+      const { _id } = await User.findOne({ username: adminUserData.username }).lean()!;
       this.adminUser._id = _id;
       return specHelper.signInUser(this.adminUser);
     });

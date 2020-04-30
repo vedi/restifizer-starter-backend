@@ -58,7 +58,7 @@ describe('REST /users', () => {
       specHelper.checkResponse(
         () => specHelper.get(
           `${testConfig.baseUrl}/api/users`,
-          { headers: { Authorization: `Bearer ${adminUser.auth.access_token}` } },
+          { headers: { Authorization: `Bearer ${adminUser.auth!.access_token}` } },
         ),
         200,
         { mask: MASK_FIELDS },
