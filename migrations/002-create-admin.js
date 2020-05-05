@@ -1,10 +1,9 @@
-import app from 'app';
-import { Callback } from '../app/domains/system';
+const app = require('app/app');
 
 const { createLog, config: { defaultUser }, modelProvider: { User } } = app;
 const log = createLog(module);
 
-exports.up = async (next: Callback) => {
+module.exports.up = async (next) => {
   log.info('Creating default admin account');
 
   try {
@@ -21,7 +20,7 @@ exports.up = async (next: Callback) => {
   }
 };
 
-exports.down = async (next: Callback) => {
+module.exports.down = async (next) => {
   log.info('Deleting default admin account');
 
   try {

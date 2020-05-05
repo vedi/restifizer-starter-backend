@@ -1,10 +1,9 @@
-import app from 'app';
-import { Callback } from '../app/domains/system';
+const app = require('app/app');
 
 const { config, createLog, modelProvider: { Client } } = app;
 const log = createLog(module);
 
-exports.up = async (next: Callback) => {
+module.exports.up = async (next) => {
   try {
     log.info('Creating default client');
     const client = await Client.findOne({ clientId: config.defaultClient.clientId });
@@ -17,7 +16,7 @@ exports.up = async (next: Callback) => {
   }
 };
 
-exports.down = (next: Callback) => {
+module.exports.down = (next) => {
   log.info('Removing default client');
 
   return Client.deleteOne({ clientId: config.defaultClient.clientId }, next);
