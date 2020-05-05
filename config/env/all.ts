@@ -4,7 +4,6 @@ const appTitle = 'restifizer-starter';
 
 const config = {
   port: process.env.PORT || 1340,
-  // mongo: 'mongodb://heroku_zhb3t77r:aabd58bunnru2a6coqpulv1dv3@ds261844-a0.mlab.com:61844,ds261844-a1.mlab.com:61844/heroku_zhb3t77r?replicaSet=rs-ds261844',
   mongo: process.env.MONGO_URL || process.env.MONGODB_URI || 'mongodb://localhost/restifizer-starter',
   mongoOptions: {
     poolSize: toNumber(process.env.MONGO_POOL_SIZE, 5),
