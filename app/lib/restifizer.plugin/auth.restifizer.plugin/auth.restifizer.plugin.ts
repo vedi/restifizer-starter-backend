@@ -13,7 +13,7 @@ import authConsts from './auth.consts';
 import authSchema from './schemas/auth-plugin.schema';
 import FacebookHelper from './sn-helpers/FacebookHelper';
 import GoogleHelper from './sn-helpers/GoogleHelper';
-import { UserDomain } from '../../../domains/user';
+import { UserDocument, UserDomain } from '../../../domains/user';
 import { Scope } from '../../../domains/app';
 import { EmailType } from '../../../domains/email';
 import { SnHelper, SnOptions } from './interfaces';
@@ -23,7 +23,7 @@ export interface MongooseOptions {
 }
 
 export interface RestifizerOptions {
-  authenticate: (user: UserDomain, scope: Scope) => Promise<any>;
+  authenticate: (user: UserDocument, scope: Scope) => Promise<any>;
   profileFilter: (userData: Partial<UserDomain>) => Partial<UserDomain>;
   sns: { [key in SupportedSn]: SnOptions };
 }
