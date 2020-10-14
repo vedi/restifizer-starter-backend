@@ -22,13 +22,13 @@ module.exports = {
         'no-else-return': 0,
         'no-param-reassign': 0,
         'no-restricted-properties': [2, {
-          "property": "isForced",
-          "message": "Remove me before committing, please."
+          property: 'isForced',
+          message: 'Remove me before committing, please.',
         }],
         'no-shadow': 'warn',
         'no-underscore-dangle': 0,
         'object-curly-newline': 0,
-        'strict': 0
+        strict: 0,
       },
       settings: {
         'import/resolver': {
@@ -37,7 +37,7 @@ module.exports = {
               'node_modules',
               '.',
             ],
-            extensions: ['.js', '.ts']
+            extensions: ['.js', '.ts'],
           },
         },
       },
@@ -50,7 +50,7 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 6,
-        project: "./tsconfig.json",
+        project: './tsconfig.json',
       },
       plugins: ['@typescript-eslint/eslint-plugin'],
       rules: {
@@ -61,8 +61,8 @@ module.exports = {
         'no-else-return': 0,
         'no-param-reassign': 0,
         'no-restricted-properties': [2, {
-          "property": "isForced",
-          "message": "Remove me before committing, please."
+          property: 'isForced',
+          message: 'Remove me before committing, please.',
         }],
         'no-undef': 0, // https://github.com/typescript-eslint/typescript-eslint/issues/342
         'no-underscore-dangle': 0,
@@ -72,7 +72,7 @@ module.exports = {
             consistent: true,
           },
         ],
-      }
-    }
+      },
+    },
   ],
 };

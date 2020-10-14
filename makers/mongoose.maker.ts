@@ -21,7 +21,7 @@ const healthProblem = function healthProblem(name: string, message: string) {
 };
 
 const initMongoose = async (
-  // eslint-disable-next-line no-shadow
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   app: App,
   mongoUrl: string,
   mongoConfig: Partial<ConnectionOptions>,
@@ -73,7 +73,7 @@ const initMongoose = async (
 };
 
 module.exports = {
-  // eslint-disable-next-line no-shadow
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   async init(app: App) {
     try {
       await initMongoose(

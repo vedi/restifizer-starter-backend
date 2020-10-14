@@ -1,6 +1,6 @@
 export enum EmailType {
   ForgotPassword = 'ForgotPassword',
-  ResetPassword = 'ResetPassword',
+  ResetPassword = 'ResetPassword'
 }
 
 export interface EmailBuilder<P> {

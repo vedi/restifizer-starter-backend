@@ -14,7 +14,6 @@ import { ExtendedExpressRequest } from '../domains/system';
 import { ClientDocument } from '../domains/auth';
 import { UserDocument } from '../domains/user';
 
-
 const { consts: { AUTH } } = app;
 
 const defaultAction: ExtendedActionOptions = {
@@ -75,7 +74,7 @@ const defaultAction: ExtendedActionOptions = {
  * @apiUse AuthSuccess
  */
 
-class BaseController<M, D, R> extends Restifizer.Controller<M, D, R, Scope<M, D>> {
+class BaseController<M, D, R> extends Restifizer.Controller<M, D, R, Scope<M>> {
   static AUTH = AUTH;
 
   constructor(options: Partial<ControllerOptions>) {
@@ -90,14 +89,14 @@ class BaseController<M, D, R> extends Restifizer.Controller<M, D, R, Scope<M, D>
     return this.name.charAt(0).toLowerCase() + this.name.replace('Controller', '').slice(1);
   }
 
-  getClient(scope: Scope<M, D>) {
+  getClient(scope: Scope<M>) {
     return scope.getClient();
   }
 
   createScope(
-    controller: Controller<M, D, R, Scope<M, D>>,
+    controller: Controller<M, D, R, Scope<M>>,
     transport: Transport<any>,
-  ): Scope<M, D> {
+  ): Scope<M> {
     const result = super.createScope(controller, transport);
 
     result.isResourceOwner = function isResourceOwner(

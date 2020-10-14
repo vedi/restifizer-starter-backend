@@ -2,7 +2,6 @@ import path from 'path';
 import { LoggerInstance } from 'moleculer';
 import { App } from '../app/domains/app';
 
-
 const createLogFactory = (app: App) => (module: NodeModule): LoggerInstance | Console => {
   let label;
   if (module) {

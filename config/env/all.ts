@@ -23,7 +23,7 @@ const config = {
 
   security: {
     forgotPasswordTokenLife: 24 * 3600,
-    tokenLife: 3600,
+    tokenLife: toNumber(process.env.ACCESS_TOKEN_LIFE, 3600),
     tokenSecret: process.env.TOKEN_SECRET || 'tokenSecret',
   },
 

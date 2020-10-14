@@ -3,7 +3,6 @@
 require('../root-require');
 const prepare = require('mocha-prepare');
 
-
 process.on('unhandledRejection', (reason, p) => {
   // eslint-disable-next-line no-console
   console.error('Unhandled Rejection at:', p, 'reason:', reason);

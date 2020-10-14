@@ -29,7 +29,6 @@ const consts = {
   DEFAULT_PAGE_SIZE: 20,
 };
 
-
 export type Consts = typeof consts;
 
 export default consts;

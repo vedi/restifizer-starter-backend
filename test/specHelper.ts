@@ -8,7 +8,7 @@ import chaiThings from 'chai-things';
 import chaiSnapshot from 'mocha-chai-snapshot';
 import { SocketIoRequest, SocketIoTransportData } from 'restifizer';
 import app from 'app';
-import { UserDomain, UserResource } from 'app/domains/user';
+import { UserResource } from 'app/domains/user';
 import testConfig from 'test/config';
 
 const {
@@ -26,8 +26,8 @@ chai.use(chaiSnapshot);
 chai.should();
 const { expect } = chai;
 
-export enum FIXTURE_TYPES {
-  USER = 'user.data',
+export enum FixtureType {
+  USER = 'user.data'
 }
 
 export interface EmailData {
@@ -48,7 +48,7 @@ function assertUserAuth(userData: Pick<UserResource, 'auth'>) {
 
 const specHelper = {
 
-  FIXTURE_TYPES,
+  FIXTURE_TYPES: FixtureType,
 
   get(uri: string, options?: Partial<CoreOptions>) {
     return this.request('GET', uri, undefined, options);
@@ -90,7 +90,7 @@ const specHelper = {
     });
   },
 
-  getFixture(fixtureType: FIXTURE_TYPES, seed?: number, data?: object) {
+  getFixture(fixtureType: FixtureType, seed?: number, data?: object) {
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const resolvedRequire = require(`./data/${fixtureType}`);
     const fixtureProvider = resolvedRequire?.default || resolvedRequire;
@@ -214,8 +214,8 @@ const specHelper = {
   withAdminUser(adminUserData: Partial<UserResource> = config.defaultUser) {
     before(async function () {
       this.adminUser = _.cloneDeep(adminUserData);
-      const { _id } = await User.findOne({ username: adminUserData.username }).lean()!;
-      this.adminUser._id = _id;
+      const { _id: id } = await User.findOne({ username: adminUserData.username }).lean()!;
+      this.adminUser._id = id;
       return specHelper.signInUser(this.adminUser);
     });
   },

@@ -17,7 +17,7 @@ export interface ExtendedActionOptions extends ActionOptions {
   auth: AuthOptions;
 }
 
-export interface Scope<M = any, D = M> extends RestifizerScope<M> {
+export interface Scope<M = any> extends RestifizerScope<M> {
   isResourceOwner(
     userId: Schema.Types.ObjectId | string,
     otherUserId: Schema.Types.ObjectId | string,

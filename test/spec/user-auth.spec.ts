@@ -99,6 +99,9 @@ describe('User Auth ', () => {
         data: userData,
         key: 'user',
       });
+
+      before('cleaning up emails', () => specHelper.fetchAndClearSentEmails());
+
       specHelper.checkResponse(
         function (this: Context) {
           return specHelper.post(
@@ -156,6 +159,7 @@ describe('User Auth ', () => {
         data: userData,
         key: 'user',
       });
+      before('cleaning up emails', () => specHelper.fetchAndClearSentEmails());
       withResetPasswordToken();
       specHelper.checkResponse(
         function (this: Context) {
@@ -184,6 +188,7 @@ describe('User Auth ', () => {
         data: userData,
         key: 'user',
       });
+      before('cleaning up emails', () => specHelper.fetchAndClearSentEmails());
       withResetPasswordToken();
       specHelper.checkResponse(
         () => specHelper.post(
