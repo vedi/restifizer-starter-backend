@@ -232,7 +232,6 @@ UserResource
             ) => this._authenticate(doc, scope),
           },
         },
-
         {
           plugin: meReplacerPlugin.restifizer,
         },

@@ -21,14 +21,25 @@ declare module 'restifizer' {
     [key: string]: any;
   };
 
+  export type LocateModelOptions = {
+    strict?: boolean;
+    withQueryPipe?: boolean;
+  };
+
   export class Controller<M = Model<any>, D = Document, R = any, S = Scope<M, D>> {
+    path: string[];
+
     transports: Transport[];
 
     actions: Record<string, any>;
 
     dataSource: DataSource<any, D>;
 
+    fieldMap: Record<string, any>;
+
     constructor(options: Partial<ControllerOptions>);
+
+    bind(): void;
 
     pre(scope: S): Promise<void>;
 
@@ -36,7 +47,7 @@ declare module 'restifizer' {
 
     assignFilter(queryParams: Record<string, any>, fieldName: string, scope: S): void;
 
-    locateModel(scope: S): Promise<D>;
+    locateModel(scope: S, options?: LocateModelOptions): Promise<D>;
 
     beforeSave(scope: S): Promise<void>;
 
@@ -54,7 +65,7 @@ declare module 'restifizer' {
 
     count(scope: Scope): Promise<{ count: number }>;
 
-    extractFieldList(scope: S): string[];
+    getFetchingFields(scope: S): Record<string, any>;
 
     buildConditions(scope: S): Scope['source'];
 
@@ -66,9 +77,12 @@ declare module 'restifizer' {
 
     normalizeAction(action: ActionOptions, actionKey: string): ActionOptions;
 
+    post(result: R, scope: S): Promise<R>;
+
+    collectionPost(result: R[], scope: S): Promise<R[]>;
+
     _handlePre(scope: Scope): Promise<void>;
   }
-
 
   export type Scope<D = any, P = Record<string, any>, T = AllTransportData> = {
     action: Controller;
@@ -77,6 +91,7 @@ declare module 'restifizer' {
     context: Record<string, any>;
     fieldList: Record<string, any>;
     model: D;
+    newContent: boolean;
     owner: Controller;
     params: P;
     restfulResult: Record<string, any> | undefined | null;
@@ -213,4 +228,11 @@ declare module 'restifizer' {
       scope: Scope,
     ): Promise<void>;
   }
+
+  export interface FieldMetadataObj {
+    name: string;
+    fields?: FieldMetadata[];
+  }
+
+  export type FieldMetadata = string | FieldMetadataObj;
 }

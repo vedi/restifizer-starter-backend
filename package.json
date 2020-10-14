@@ -33,7 +33,7 @@
     "nodemailer": "^6.4.2",
     "nodemailer-ses-transport": "^1.4.0",
     "oauthifizer": "^0.4.12",
-    "restifizer": "^0.8.28",
+    "restifizer": "^0.8.33",
     "restifizer-mongoose-ds": "^0.1.13",
     "socket.io": "^2.2.0",
     "socket.io-redis": "^5.2.0",

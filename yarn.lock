@@ -2779,7 +2779,7 @@ lodash@^4.17.14, lodash@^4.17.15, lodash@~4.17.15:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-lodash@~4.17.19:
+lodash@^4.17.19, lodash@~4.17.19:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -4006,14 +4006,13 @@ restifizer-sequelize-ds@^0.2.5:
     http-statuses "^0.2.0"
     lodash "^4.17.15"
 
-restifizer@^0.8.28:
-  version "0.8.28"
-  resolved "https://registry.yarnpkg.com/restifizer/-/restifizer-0.8.28.tgz#af20039b4f16a19b8a1ea942c32c823d40094a1b"
-  integrity sha512-68x+w16mqCke5OTspQmOH7q72c8JtgQP3nqfKIdkxg9x6eLM1C2hbeKS7lmhDOCPLQ7S/CUu9eP0D9TEM2vjLQ==
+restifizer@^0.8.33:
+  version "0.8.33"
+  resolved "https://registry.yarnpkg.com/restifizer/-/restifizer-0.8.33.tgz#305e10e5f5b0445ff4b83f851b51ff2eb45ca681"
+  integrity sha512-iXbYFqKrsGkBuK07fKejjnrTIgMC4q+QxOMwdwVsxAeW0F9xnBdMHdw2INLVhNFYSQLA2zFeTJ82+66NP7M9Jg==
   dependencies:
-    bluebird "^3.5.0"
     http-statuses "^0.2.0"
-    lodash "^4.17.15"
+    lodash "^4.17.19"
     restifizer-mongoose-ds "^0.1.13"
     restifizer-sequelize-ds "^0.2.5"
 
