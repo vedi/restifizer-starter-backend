@@ -14,7 +14,7 @@ export enum Gender {
 export interface UserDomain {
   username: string;
   password: string;
-  provider: 'local';
+  provider?: 'local';
   resetPassword?: Token;
   admin?: boolean;
   hashedPassword?: string;
