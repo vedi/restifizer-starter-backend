@@ -80,7 +80,7 @@
     "socket.io-client": "^2.2.0"
   },
   "engines": {
-    "node": "12.x.x",
+    "node": "14.x.x",
     "yarn": "1.x.x"
   },
   "license": "MIT",
