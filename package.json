@@ -4,7 +4,7 @@
     "ajv": "^6.11.0",
     "apidoc": "^0.20.1",
     "app-module-path": "^2.2.0",
-    "aws-sdk": "^2.604.0",
+    "aws-sdk": "^2.814.0",
     "bcrypt": "^5.0.0",
     "bee-queue": "^1.2.3",
     "body-parser": "~1.19.0",
